@@ -2,6 +2,7 @@
   "name": "shorif-ahmmed-portfolio",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@10.15.1",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -17,3 +18,4 @@
     "typescript": "5.9.2"
   }
 }
+
