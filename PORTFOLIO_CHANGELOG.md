@@ -1,6 +1,7 @@
 # Portfolio Change Log
 
 ## 2026-09-28
+- Replaced the initial generated Pages hostname with `https://shorif-ahmmed.pages.dev`.
 - Migrated the complete portfolio source to `shorifahmmedgit/professional-portfolio` on `main`.
 - Configured Cloudflare Pages Free with automatic GitHub production deployments.
 - Updated canonical, sitemap, robots and operations metadata for `https://professional-portfolio-62s.pages.dev`.
