@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://professional-portfolio-62s.pages.dev/sitemap-index.xml
+Sitemap: https://shorif-ahmmed.pages.dev/sitemap-index.xml
 
