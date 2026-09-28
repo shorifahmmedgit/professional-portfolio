@@ -1,0 +1,14 @@
+# Portfolio Change Log
+
+## 2026-09-28
+- Live public portfolio deployed.
+- Added CLO 3D pattern-validation positioning and case study.
+- Added AI & Workflow Systems section.
+- Added professional communication capability.
+- Corrected canonical URL and sitemap to the live deployment.
+- Added command-driven portfolio operations and section source manifest.
+- Added responsive mobile navigation for phone-only use.
+- Added public CV to navigation with Print / Save as PDF support.
+- Added favicon, author metadata, WebSite + Person structured data, richer Open Graph/Twitter metadata.
+- Refined public contact page and linked CV.
+- Completed full QA crawl of every sitemap route with no public route errors found.

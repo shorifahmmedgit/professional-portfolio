@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "owner": "Shorif Ahmmed",
+  "public_url": "https://shorif-ahmmed.onrender.com",
+  "deployment_branch": "portfolio-deploy",
+  "sections": {
+    "global_navigation_and_cards": "src/data/site.ts",
+    "home": "src/pages/index.astro",
+    "about": "src/pages/about.astro",
+    "expertise": "src/pages/expertise.astro",
+    "ai_and_systems": "src/pages/systems.astro",
+    "projects_index": "src/pages/projects/index.astro",
+    "project_details": "src/pages/projects/[slug].astro",
+    "writing_index": "src/pages/articles/index.astro",
+    "article_details": "src/pages/articles/[slug].astro",
+    "research": "src/pages/research.astro",
+    "cv": "src/pages/cv.astro",
+    "contact": "src/pages/contact.astro",
+    "global_layout_seo_schema": "src/layouts/Base.astro",
+    "global_styles_mobile": "src/styles/global.css",
+    "robots": "public/robots.txt",
+    "astro_config": "astro.config.mjs"
+  },
+  "update_rules": {
+    "professional_fact_change": "verify against Drive SSOT before publishing",
+    "confidential_material": "anonymize or do not publish",
+    "image_change": "optimize asset, use descriptive filename and alt text",
+    "major_change": "commit, deploy, live-verify, log"
+  }
+}

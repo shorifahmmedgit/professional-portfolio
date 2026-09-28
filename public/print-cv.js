@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('print-cv');if(b)b.addEventListener('click',()=>window.print());});

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shorif-ahmmed.onrender.com/sitemap-index.xml

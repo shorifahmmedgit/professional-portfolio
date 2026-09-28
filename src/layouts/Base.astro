@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+import { nav } from '../data/site';
+
+interface Props { title: string; description: string; image?: string; type?: 'website' | 'article'; }
+const { title, description, image = '/og-default.svg', type = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title === 'Shorif Ahmmed' ? title : `${title} — Shorif Ahmmed`;
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': new URL('/#person', Astro.site).href,
+      name: 'Shorif Ahmmed',
+      jobTitle: 'Pattern Master / Pattern Maker',
+      url: Astro.site,
+      address: { '@type': 'PostalAddress', addressLocality: 'Dhaka', addressCountry: 'BD' },
+      sameAs: ['https://www.linkedin.com/in/shorifahmmed'],
+      knowsAbout: [
+        'Garment pattern making',
+        'Gerber AccuMark',
+        'Woven shirts',
+        'Overshirt development',
+        'CLO 3D pattern validation',
+        'Garment technology',
+        'AI-assisted garment workflows'
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': new URL('/#website', Astro.site).href,
+      url: Astro.site,
+      name: 'Shorif Ahmmed — Professional Portfolio',
+      publisher: { '@id': new URL('/#person', Astro.site).href },
+      inLanguage: 'en'
+    }
+  ]
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Shorif Ahmmed" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#122b24" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:site_name" content="Shorif Ahmmed — Professional Portfolio" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Shorif Ahmmed home"><span>SA</span><b>Shorif Ahmmed</b></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        {nav.map((item) => <a href={item.href} aria-current={Astro.url.pathname.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
+      </nav>
+      <a class="header-cta" href="/contact">Start a conversation <span aria-hidden="true">↗</span></a>
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation"><span>Menu</span><b aria-hidden="true">☰</b></summary>
+        <nav aria-label="Mobile navigation">
+          {nav.map((item) => <a href={item.href} aria-current={Astro.url.pathname.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
+        </nav>
+      </details>
+    </header>
+    <main id="main"><slot /></main>
+    <footer>
+      <div><a class="brand footer-brand" href="/"><span>SA</span><b>Shorif Ahmmed</b></a><p>Pattern precision, technical growth and responsible innovation.</p></div>
+      <div><p class="footer-label">Based in</p><p>Dhaka, Bangladesh</p></div>
+      <div><p class="footer-label">Connect</p><p><a href="/contact">Professional inquiries</a><br /><a href="https://www.linkedin.com/in/shorifahmmed" rel="me noreferrer">LinkedIn ↗</a></p></div>
+      <div class="footer-end"><p>© {new Date().getFullYear()} Shorif Ahmmed</p><p>Evidence-led professional portfolio.</p></div>
+    </footer>
+  </body>
+</html>

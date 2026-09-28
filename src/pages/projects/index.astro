@@ -1,0 +1,4 @@
+---
+import Base from '../../layouts/Base.astro'; import { projects } from '../../data/site';
+---
+<Base title="Projects & Case Studies" description="Public-safe garment pattern, workflow and AI × garment research projects by Shorif Ahmmed."><section class="page-hero shell"><p class="eyebrow">Projects & case studies</p><h1>Showing the <em>reasoning</em>, not confidential source material.</h1><p class="lead narrow">These studies use reconstructed diagrams and generalized methods. They do not contain buyer specifications, proprietary blocks, internal comments or restricted garment imagery.</p></section><section class="shell section-space"><div class="project-grid project-grid-full">{projects.map((p,i)=><a class:list={['project-card',`tone-${i+1}`]} href={`/projects/${p.slug}`}><span>{p.eyebrow}</span><h2>{p.title}</h2><p>{p.summary}</p><ul>{p.tags.map(t=><li>{t}</li>)}</ul><b>Open study →</b></a>)}</div></section></Base>
