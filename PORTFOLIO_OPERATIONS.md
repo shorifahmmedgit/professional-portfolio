@@ -8,7 +8,7 @@ The owner should be able to request changes in natural language. The assistant m
 ## Canonical sources
 - Private professional facts/evidence: Google Drive SSOT.
 - Public website source: this GitHub branch/repository.
-- Runtime: current static hosting provider.
+- Runtime: Cloudflare Pages Free.
 - Confidential buyer/employer documents never become public source material.
 
 ## Command patterns
@@ -18,7 +18,7 @@ Examples the owner can send:
 - `Add experience: ...`
 - `Add skill: ...`
 - `Move this skill to learning, not expertise.`
-- `Add project: <title> — <description>.`
+- `Add project: <title> â€” <description>.`
 - `Publish article: <topic>.`
 - `Update CV and website together.`
 - `Replace profile photo with this image.`
@@ -46,7 +46,8 @@ Examples the owner can send:
 See `portfolio.manifest.json`.
 
 ## Deployment behavior
-The current hosting service auto-deploys on commits to the portfolio deployment branch. Future migration to Cloudflare should preserve this command -> GitHub -> auto-deploy workflow.
+Cloudflare Pages auto-deploys production commits from `professional-portfolio/main` to `https://professional-portfolio-62s.pages.dev`.
 
 ## Quality rule
 Never claim a change is live until the public URL is fetched or otherwise verified after deployment.
+
