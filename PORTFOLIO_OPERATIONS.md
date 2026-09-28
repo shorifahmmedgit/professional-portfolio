@@ -46,7 +46,7 @@ Examples the owner can send:
 See `portfolio.manifest.json`.
 
 ## Deployment behavior
-Cloudflare Pages auto-deploys production commits from `professional-portfolio/main` to `https://professional-portfolio-62s.pages.dev`.
+Cloudflare Pages auto-deploys production commits from `professional-portfolio/main` to `https://shorif-ahmmed.pages.dev`.
 
 ## Quality rule
 Never claim a change is live until the public URL is fetched or otherwise verified after deployment.
