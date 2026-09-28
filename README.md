@@ -25,7 +25,7 @@ pnpm preview
 - Output directory: `dist`
 - Node version: current Cloudflare-supported LTS
 
-The production URL is `https://professional-portfolio-62s.pages.dev`. If a permanent custom domain is approved later, update the canonical URL, sitemap URL and robots sitemap together.
+The production URL is `https://shorif-ahmmed.pages.dev`. If a permanent custom domain is approved later, update the canonical URL, sitemap URL and robots sitemap together.
 
 ## Publishing rule
 
