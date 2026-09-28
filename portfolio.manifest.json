@@ -1,8 +1,8 @@
 {
   "version": 1,
   "owner": "Shorif Ahmmed",
-  "public_url": "https://shorif-ahmmed.onrender.com",
-  "deployment_branch": "portfolio-deploy",
+  "public_url": "https://professional-portfolio-62s.pages.dev",
+  "deployment_branch": "main",
   "sections": {
     "global_navigation_and_cards": "src/data/site.ts",
     "home": "src/pages/index.astro",
@@ -28,3 +28,4 @@
     "major_change": "commit, deploy, live-verify, log"
   }
 }
+
