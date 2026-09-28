@@ -1,6 +1,9 @@
 # Portfolio Change Log
 
 ## 2026-09-28
+- Migrated the complete portfolio source to `shorifahmmedgit/professional-portfolio` on `main`.
+- Configured Cloudflare Pages Free with automatic GitHub production deployments.
+- Updated canonical, sitemap, robots and operations metadata for `https://professional-portfolio-62s.pages.dev`.
 - Live public portfolio deployed.
 - Added CLO 3D pattern-validation positioning and case study.
 - Added AI & Workflow Systems section.
@@ -12,3 +15,4 @@
 - Added favicon, author metadata, WebSite + Person structured data, richer Open Graph/Twitter metadata.
 - Refined public contact page and linked CV.
 - Completed full QA crawl of every sitemap route with no public route errors found.
+
