@@ -1,7 +1,7 @@
 {
   "version": 1,
   "owner": "Shorif Ahmmed",
-  "public_url": "https://professional-portfolio-62s.pages.dev",
+  "public_url": "https://shorif-ahmmed.pages.dev",
   "deployment_branch": "main",
   "sections": {
     "global_navigation_and_cards": "src/data/site.ts",
