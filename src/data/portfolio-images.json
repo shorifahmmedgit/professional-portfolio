@@ -1,7 +1,12 @@
 {
-  "generatedAt": "2026-10-01T17:10:30.295Z",
+  "generatedAt": "2026-10-01T17:21:29.053Z",
   "professional": {
-    "featured": null,
+    "featured": {
+      "src": "/media/profile/shorif-ahmmed-work-environment.webp",
+      "width": 1122,
+      "height": 1402,
+      "alt": "Shorif Ahmmed in a professional pattern-development work environment"
+    },
     "supporting": []
   },
   "workItems": [
