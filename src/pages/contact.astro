@@ -10,8 +10,11 @@ import Base from '../layouts/Base.astro';
   </div>
   <div class="contact-card">
     <p class="eyebrow">Best channels</p>
-    <a href="mailto:shorif.funfactorybd@gmail.com?subject=Professional%20inquiry%20via%20portfolio">Professional email <span>↗</span></a>
-    <a href="https://www.linkedin.com/in/shorifahmmed" rel="me noreferrer">LinkedIn <span>↗</span></a>
+    <div class="contact-email">
+      <button type="button" id="reveal-email" aria-controls="professional-email" aria-expanded="false">Professional Email <span>Reveal</span></button>
+      <div id="professional-email" hidden><p>shorif.ahmmed.a@gmail.com</p><a href="mailto:shorif.ahmmed.a@gmail.com">Send Email <span>↗</span></a></div>
+    </div>
+    <a href="https://www.linkedin.com/in/shorifahmmed" target="_blank" rel="me noopener noreferrer">LinkedIn <span>↗</span></a>
     <a href="/cv">Public CV <span>↗</span></a>
     <small>Please do not send proprietary buyer files, internal measurements or confidential factory information through an initial inquiry.</small>
   </div>
@@ -25,4 +28,14 @@ import Base from '../layouts/Base.astro';
     <article><span>04</span><h3>Industry network</h3><p>Constructive professional relationships across Bangladesh’s apparel ecosystem.</p></article>
   </div>
 </section>
+<script>
+  const revealButton = document.querySelector('#reveal-email');
+  const emailPanel = document.querySelector('#professional-email');
+  revealButton?.addEventListener('click', () => {
+    if (!(revealButton instanceof HTMLButtonElement) || !(emailPanel instanceof HTMLElement)) return;
+    emailPanel.hidden = false;
+    revealButton.setAttribute('aria-expanded', 'true');
+    revealButton.hidden = true;
+  });
+</script>
 </Base>

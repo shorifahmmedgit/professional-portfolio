@@ -1,4 +1,0 @@
----
-import Base from '../../layouts/Base.astro'; import { articles } from '../../data/site';
----
-<Base title="Technical Articles" description="Field notes on garment pattern reasoning, professional evidence and AI × garment knowledge systems by Shorif Ahmmed."><section class="page-hero shell"><p class="eyebrow">Technical articles</p><h1>Notes from the work of becoming <em>more technically precise.</em></h1><p class="lead narrow">Writing turns observations into testable ideas. These articles distinguish working experience, interpretation and open research questions.</p></section><section class="shell section-space"><div class="article-list large">{articles.map(a=><a href={`/articles/${a.slug}`}><div><span>{a.category} · {a.read}</span><h2>{a.title}</h2><p>{a.excerpt}</p></div><time datetime={a.date}>{new Date(a.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</time><b>↗</b></a>)}</div></section></Base>

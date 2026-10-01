@@ -78,3 +78,19 @@
 
 .lightbox-open{overflow:hidden}.portfolio-lightbox{width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;border:0;padding:0;background:transparent;color:#fff}.portfolio-lightbox::backdrop{background:#07130fd9;backdrop-filter:blur(8px)}.lightbox-shell{height:100%;display:grid;grid-template-rows:auto 1fr;background:#07130f38}.lightbox-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #ffffff26}.lightbox-bar>div{display:flex;gap:.8rem;align-items:baseline}.lightbox-bar strong{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}.lightbox-bar span{font-size:.72rem;color:#c6d0cc}.lightbox-close,.lightbox-nav{border:1px solid #ffffff57;background:#0f2b23c7;color:#fff;display:grid;place-items:center;cursor:pointer}.lightbox-close{width:44px;height:44px;font-size:1.7rem}.lightbox-canvas{min-height:0;display:grid;grid-template-columns:60px minmax(0,1fr) 60px;align-items:center;gap:1rem;padding:22px}.lightbox-canvas img{display:block;max-width:100%;max-height:calc(100dvh - 112px);width:auto;height:auto;margin:auto;object-fit:contain}.lightbox-nav{width:52px;height:52px;border-radius:50%;font-size:1.15rem}.lightbox-close:hover,.lightbox-nav:hover,.lightbox-close:focus-visible,.lightbox-nav:focus-visible{background:var(--rust);outline:2px solid #fff;outline-offset:2px}
 @media(max-width:600px){.lightbox-bar{padding:12px 14px}.lightbox-bar>div{display:block}.lightbox-bar strong,.lightbox-bar span{display:block}.lightbox-canvas{grid-template-columns:48px minmax(0,1fr) 48px;gap:.35rem;padding:12px 6px}.lightbox-nav{width:44px;height:44px}.lightbox-canvas img{max-height:calc(100dvh - 92px)}}
+
+/* Company-by-company experience */
+.experience-list{display:grid;gap:1.25rem;max-width:1040px}
+.experience-card{display:grid;grid-template-columns:180px minmax(0,1fr);border-top:2px solid var(--ink);background:var(--white);box-shadow:0 12px 36px #1028200a}
+.experience-card header{padding:2rem;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:3rem}
+.experience-card header span{font:italic 1.5rem var(--serif);color:var(--rust)}
+.experience-card time{font-size:.72rem;color:var(--muted)}
+.experience-card-body{padding:2.4rem 2.6rem}
+.experience-card-body h2{font-size:clamp(1.7rem,3vw,2.7rem);margin:.65rem 0 .8rem}
+.experience-card-body h3{font-size:1rem;color:var(--rust);letter-spacing:.02em}
+.experience-card-body ul{margin:1.8rem 0 0;padding:0;list-style:none;display:grid;gap:.7rem}
+.experience-card-body li{position:relative;padding-left:1.2rem;color:var(--muted);font-size:.9rem}
+.experience-card-body li:before{content:'—';position:absolute;left:0;color:var(--rust)}
+.experience-buyers{margin:1.4rem 0 0;color:var(--muted);font-size:.86rem}.experience-responsibilities{margin-top:1.5rem}.experience-responsibilities> b{font-size:.8rem}.experience-responsibilities h4{margin:1.2rem 0 .5rem;font-size:.78rem;color:var(--rust);letter-spacing:.08em}.experience-responsibilities ul{margin-top:.7rem}
+.contact-email{border-top:1px solid #42564f}.contact-email button{width:100%;border:0;padding:1.3rem 0;background:transparent;color:#fff;font:inherit;text-align:left;display:flex;justify-content:space-between;cursor:pointer}.contact-email button span{color:#d6a28e;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}.contact-email>div p{margin:.25rem 0;color:#fff;user-select:text}.contact-email>div a{display:flex;justify-content:space-between;padding:.75rem 0 1.3rem;color:#d6a28e;font-size:.82rem}.contact-email+ a{border-top:1px solid #42564f}
+@media(max-width:600px){.experience-card{grid-template-columns:1fr}.experience-card header{padding:1.2rem 1.4rem;border-right:0;border-bottom:1px solid var(--line);flex-direction:row;gap:1rem}.experience-card-body{padding:1.6rem 1.4rem}}

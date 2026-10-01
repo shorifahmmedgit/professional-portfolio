@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import { experience } from '../data/site';
+---
+<Base title="Experience" description="Company-by-company garment pattern and sample-development experience of Shorif Ahmmed.">
+  <section class="page-hero shell"><p class="eyebrow">Experience</p><h1>Factory experience across <em>pattern and sample development.</em></h1><p class="lead narrow">Employment experience reproduced factory-by-factory from my CV.</p></section>
+  <section class="shell section-space"><div class="experience-list">{experience.map((item, index) => <article class="experience-card"><header><span>{String(index + 1).padStart(2, '0')}</span><time>{item.period}</time></header><div class="experience-card-body"><h2>{item.organization}</h2><h3>{item.designation}</h3><p class="experience-buyers"><b>Buyer Handling:</b> {item.buyerHandling}</p><div class="experience-responsibilities"><b>Duties/Responsibilities:</b>{item.sections.map(section => <section>{section.label && <h4>{section.label}</h4>}<ul>{section.responsibilities.map(responsibility => <li>{responsibility}</li>)}</ul></section>)}</div></div></article>)}</div></section>
+</Base>

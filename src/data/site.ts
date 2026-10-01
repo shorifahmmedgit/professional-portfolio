@@ -3,60 +3,40 @@ export const nav = [
   { href: '/expertise', label: 'Expertise' },
   { href: '/projects', label: 'Work' },
   { href: '/systems', label: 'AI & Systems' },
-  { href: '/articles', label: 'Writing' },
+  { href: '/experience', label: 'Experience' },
   { href: '/research', label: 'Research' },
   { href: '/cv', label: 'CV' },
   { href: '/contact', label: 'Contact' },
 ];
 
-export const timeline = [
-  { period: '10 Jan 2026 — Present', role: 'Pattern Master / Pattern Maker', org: 'Intercept Shirt Manufacturing Ltd. · VLR Tex Group', note: 'Sample department · woven shirts and overshirt development' },
-  { period: '10 May 2025 — 08 Jan 2026', role: 'Assistant Pattern Maker', org: 'Fun Factory BD Ltd.', note: 'Pattern adjustment, grading, sample support and consumption work' },
-  { period: '2022 — 2025', role: 'Assistant Pattern Maker / CAD pattern work', org: 'International Trading Service Ltd. · Standard Group', note: 'Started with digitizing and grading; progressed into development work' },
+export const experience = [
+  {
+    period: '10 Jan/2026 - Present', designation: 'Pattern Master.', organization: 'Interfab Shirt Manufacturing LTD. (VIYELLATEX Group)', buyerHandling: "M&S, LAND'S END",
+    sections: [
+      { label: 'M&S:', responsibilities: ['Maintain M&S buyer blocks and develop patterns from tech packs, measurements and buyer comments.','Prepare measurement sheets and support sample development for Fit, PP and Size-Set stages.','Perform pattern grading and sample corrections based on fit, measurement and technical comments.','Hands-on experience with M&S T11, T25 and T68 departments.','Coordinate with sample makers and QC teams during sample development and checking.','Participate in sample submissions at M&S BDSO.','Review buyer comments at M&S BDSO with the factory technical team and implement required corrections.','Handle M&S-related technical email communication and follow-up.'] },
+      { label: "LAND'S END:", responsibilities: ['Develop patterns as per tech pack and buyer requirements.','Perform pattern making, grading and Size-Set development.','Review Size-Set evaluation and adjust patterns and measurements as required.','Support production pattern requirements and ongoing adjustments as production has started for this new buyer program.'] }
+    ]
+  },
+  {
+    period: 'May/2025 - December/2025', designation: 'Pattern Master.', organization: 'Fun Factory BD Ltd.', buyerHandling: 'LOGONET, CREON, COBALT GEAR, FINLAND ARMY',
+    sections: [{ label: '', responsibilities: ['Pattern making and pattern grading for assigned styles.','Sample-pattern preparation and sample-development support.','Review buyer comments and tech packs; analyze requirements and adjust patterns/comments accordingly.','Support production pattern requirements and necessary corrections.','Prepare consumption markers / marker making for assigned styles.'] }]
+  },
+  {
+    period: 'Feb/2022 - April/2025', designation: 'CAD Pattern Maker.', organization: 'International Trading Service Ltd. (Standard Group)', buyerHandling: "AMERICAN EAGLE OUTFITTER (AEO), PEPE JEANS LONDON, LAND'S END",
+    sections: [{ label: '', responsibilities: ['Pattern making for buyer styles using Gerber CAD and manual pattern-development methods as required.','Pattern grading for sample, size-set and production-related requirements.','Review and analyze buyer tech packs, specifications and technical requirements before pattern development and adjustment.'] }]
+  }
 ];
 
 export const capabilities = [
-  { n: '01', title: 'Pattern development', body: 'Translating buyer sketches, specifications, blocks and reference samples into workable Gerber 2D patterns.' },
-  { n: '02', title: 'Comment-led correction', body: 'Interpreting review comments, forming an adjustment hypothesis, modifying the pattern and validating the result through the sample cycle.' },
-  { n: '03', title: 'Grading & production support', body: 'Production size-set grading, digital and manual checks, plus basic marker and solid-fabric consumption work.' },
-  { n: '04', title: 'Technical documentation', body: 'Reading measurement charts and technical sketches, spotting missing information, and communicating technical questions clearly.' },
-  { n: '05', title: 'CLO 3D pattern validation', body: 'Using 3D simulation primarily as a pre-sample checking layer: draft the pattern, dress it on an avatar, review silhouette and visible pattern issues, then refine before final pattern release.' },
-  { n: '06', title: 'Professional communication', body: 'Buyer-facing email handling, technical reading, written follow-up and working English communication across speaking, listening and documentation.' },
+  { n: '01', title: 'Pattern development', body: 'Professional pattern development from tech packs, measurements, specifications and technical comments using Gerber AccuMark / PDS.' },
+  { n: '02', title: 'Pattern grading', body: 'Pattern grading for sample, Size-Set and production-related requirements.' },
+  { n: '03', title: 'Sample development', body: 'Pattern preparation, measurement-sheet support and corrections across Fit, PP and Size-Set stages.' },
+  { n: '04', title: 'Technical review', body: 'Reviewing tech packs, measurements and technical comments before making pattern adjustments.' },
+  { n: '05', title: 'CLO 3D support', body: 'Practical use of CLO 3D for garment visualization, pattern checking and product-development support.' },
+  { n: '06', title: 'Production support', body: 'Production pattern support, technical corrections, marker preparation and coordination with sample and QC teams.' },
 ];
 
 export const projects = [
-  {
-    slug: 'comment-to-pattern-workflow',
-    eyebrow: 'Workflow study',
-    title: 'From buyer comment to pattern action',
-    summary: 'A public-safe model for turning review comments into traceable pattern decisions without exposing buyer documents.',
-    tags: ['Gerber 2D', 'Reasoning', 'Sample cycle'],
-  },
-  {
-    slug: 'overshirt-development-system',
-    eyebrow: 'Practice area',
-    title: 'Overshirt development as a system',
-    summary: 'A framework for connecting specification, silhouette, fabric, construction and pattern balance during development.',
-    tags: ['Overshirts', 'Woven', 'Fit learning'],
-  },
-  {
-    slug: 'clo-3d-pattern-validation',
-    eyebrow: 'Digital validation practice',
-    title: 'CLO 3D as a pattern-checking layer before sample release',
-    summary: 'How I use 3D simulation less as presentation theatre and more as a practical checkpoint between drafting, style interpretation and physical sampling.',
-    tags: ['CLO 3D', 'Pattern validation', 'Pre-sample'],
-  },
-  {
-    slug: 'garment-knowledge-retrieval',
-    eyebrow: 'Research concept',
-    title: 'Garment knowledge retrieval assistant',
-    summary: 'A proposed knowledge system for retrieving safe historical lessons by style, sample stage, issue and technical action.',
-    tags: ['AI × garments', 'Taxonomy', 'Knowledge systems'],
-  },
-];
-
-export const articles = [
-  { slug: 'pattern-making-is-a-feedback-system', title: 'Pattern making is a feedback system', excerpt: 'Why development improves when comments, actions and results become a reusable technical loop.', category: 'Pattern reasoning', date: '2026-09-22', read: '5 min' },
-  { slug: 'building-an-evidence-safe-portfolio', title: 'Building an evidence-safe garment portfolio', excerpt: 'How to show technical judgment without publishing a buyer tech pack, proprietary block or confidential sample.', category: 'Professional practice', date: '2026-09-22', read: '4 min' },
-  { slug: 'ai-garment-knowledge-taxonomy', title: 'A practical taxonomy for AI × garment knowledge', excerpt: 'A structure for organizing style history, buyer comments, sample stages, fit issues and learned corrections.', category: 'AI × garments', date: '2026-09-22', read: '7 min' },
+  { slug: 'comment-to-pattern-workflow', eyebrow: 'Pattern workflow', title: 'From technical comment to pattern correction', summary: 'A public-safe view of reviewing technical requirements, adjusting patterns and supporting the sample-development cycle.', tags: ['Gerber AccuMark', 'Pattern correction', 'Sample development'] },
+  { slug: 'clo-3d-pattern-validation', eyebrow: 'Digital development support', title: 'CLO 3D for visualization and pattern checking', summary: 'Practical 3D garment visualization and pattern-checking work used to support product development.', tags: ['CLO 3D', 'Pattern checking', 'Product development'] },
 ];

@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import PatternVisual from '../components/PatternVisual.astro';
 import SectionHead from '../components/SectionHead.astro';
 import ProcessShowcase from '../components/ProcessShowcase.astro';
-import { capabilities, projects, articles } from '../data/site';
+import { capabilities, projects, experience } from '../data/site';
 ---
 <Base title="Shorif Ahmmed" description="Pattern Master in Dhaka working across both Gerber 2D and CLO 3D, combining digital pattern development, garment evaluation and physical sample learning across woven shirts and overshirts.">
   <section class="hero shell">
@@ -38,9 +38,9 @@ import { capabilities, projects, articles } from '../data/site';
   <section class="learning-band"><div class="shell learning-inner"><div><p class="eyebrow light">Development ledger</p><h2>Credibility includes the work still in progress.</h2></div><p>I am actively deepening fit diagnosis, fabric behaviour, construction logic, advanced grading, CLO 3D and technical communication. These are presented as learning areas—not inflated expertise.</p><a href="/expertise#learning">View the learning roadmap →</a></div></section>
 
   <section class="shell section-space">
-    <SectionHead eyebrow="Field notes" title="Writing to make technical thinking reusable." />
-    <div class="article-list">{articles.map((a) => <a href={`/articles/${a.slug}`}><div><span>{a.category} · {a.read}</span><h3>{a.title}</h3><p>{a.excerpt}</p></div><time datetime={a.date}>{new Date(a.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</time><b>↗</b></a>)}</div>
-    <a class="text-link end-link" href="/articles">Browse all writing <span>→</span></a>
+    <SectionHead eyebrow="Experience" title="Professional progression across pattern and sample development." />
+    <div class="article-list">{experience.map((item) => <a href="/experience"><div><span>Employment</span><h3>{item.organization}</h3><p>{item.designation}</p></div><time>{item.period}</time><b>→</b></a>)}</div>
+    <a class="text-link end-link" href="/experience">View full experience <span>→</span></a>
   </section>
   <section class="cta-band"><p class="eyebrow light">Professional connection</p><h2>Interested in precise pattern work, technical learning or responsible garment innovation?</h2><a class="button light-button" href="/contact">Start a conversation ↗</a></section>
 </Base>
