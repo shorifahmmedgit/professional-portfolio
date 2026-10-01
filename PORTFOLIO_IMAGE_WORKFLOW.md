@@ -15,11 +15,12 @@ Portfolio Website Images/
 ├── My Photos/
 └── Work Photos/
     ├── 2D Pattern Photos/<style>/
+    ├── Inspiration Images/<style>/
     ├── CLO 3D Photos/<style>/
     └── Actual Sample Photos/<style>/
 ```
 
-Capitalization and common suffixes such as `CLO 3D`, `2D`, `Pattern`, `Gerber`, `PDS`, `Actual Sample`, and `Sample` are normalized. Ambiguous or exceptional names belong in `src/data/work-image-map.json`; the sync does not guess beyond these conservative rules.
+Capitalization and common suffixes such as `Inspiration`, `Reference`, `CLO 3D`, `2D`, `Pattern`, `Gerber`, `PDS`, `Actual Sample`, and `Sample` are normalized. Ambiguous or exceptional names belong in `src/data/work-image-map.json`; the sync does not guess beyond these conservative rules.
 
 Only stages containing images are rendered. An empty `My Photos` folder hides the professional-photo section cleanly.
 

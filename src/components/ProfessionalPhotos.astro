@@ -9,7 +9,7 @@ const images = featured ? [featured, ...supporting] : [];
   <section class="professional-photos" aria-labelledby="professional-photo-title">
     <div class="shell profile-photo-layout">
       <div class="profile-photo-copy"><p class="eyebrow">Professional practice</p><h2 id="professional-photo-title">The person <em>behind the pattern.</em></h2><p>Pattern development is careful, collaborative work—connecting technical decisions across the screen, sample room and finished garment.</p></div>
-      <ImageGallery images={images} eager={true} />
+      <ImageGallery images={images} eager={true} interactive={false} />
     </div>
   </section>
 )}

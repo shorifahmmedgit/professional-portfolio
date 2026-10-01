@@ -8,7 +8,8 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "sync:portfolio-images": "node scripts/sync-portfolio-images.mjs"
+    "sync:portfolio-images": "node scripts/sync-portfolio-images.mjs",
+    "test:workflow": "node scripts/test-workflow-model.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

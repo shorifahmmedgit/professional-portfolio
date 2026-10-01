@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T16:41:38.341Z",
+  "generatedAt": "2026-10-01T17:10:30.295Z",
   "professional": {
     "featured": null,
     "supporting": []
@@ -11,6 +11,7 @@
       "category": "Woven garment development",
       "description": "A public-safe view of one style across CLO 3D garment visualization and the finished physical sample. Each environment contributes different information to the development process.",
       "stages": {
+        "inspiration": [],
         "twoD": [],
         "clo3D": [
           {

@@ -1,0 +1,82 @@
+<dialog class="portfolio-lightbox" aria-labelledby="lightbox-stage" aria-describedby="lightbox-position">
+  <div class="lightbox-shell">
+    <header class="lightbox-bar">
+      <div><strong id="lightbox-stage">Image preview</strong><span id="lightbox-position" aria-live="polite"></span></div>
+      <button class="lightbox-close" type="button" aria-label="Close image preview">×</button>
+    </header>
+    <div class="lightbox-canvas">
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">←</button>
+      <img src="" alt="" width="1600" height="1200" />
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">→</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.querySelector('.portfolio-lightbox');
+  if (dialog instanceof HTMLDialogElement) {
+    const image = dialog.querySelector('img');
+    const stage = dialog.querySelector('#lightbox-stage');
+    const position = dialog.querySelector('#lightbox-position');
+    const closeButton = dialog.querySelector('.lightbox-close');
+    const previousButton = dialog.querySelector('.lightbox-prev');
+    const nextButton = dialog.querySelector('.lightbox-next');
+    let items: HTMLButtonElement[] = [];
+    let current = 0;
+    let opener: HTMLElement | null = null;
+    let scrollY = 0;
+    let touchStartX: number | null = null;
+
+    const render = () => {
+      const item = items[current];
+      if (!item || !(image instanceof HTMLImageElement)) return;
+      image.src = item.dataset.lightboxSrc || '';
+      image.alt = item.dataset.lightboxAlt || '';
+      if (stage) stage.textContent = item.dataset.lightboxStage || 'Image preview';
+      if (position) position.textContent = `${current + 1} / ${items.length}`;
+      const multiple = items.length > 1;
+      if (previousButton instanceof HTMLButtonElement) previousButton.hidden = !multiple;
+      if (nextButton instanceof HTMLButtonElement) nextButton.hidden = !multiple;
+    };
+
+    const move = (amount: number) => { current = (current + amount + items.length) % items.length; render(); };
+    const close = () => dialog.close();
+
+    document.addEventListener('click', event => {
+      const trigger = event.target instanceof Element ? event.target.closest('[data-lightbox-group]') : null;
+      if (!(trigger instanceof HTMLButtonElement)) return;
+      const group = trigger.dataset.lightboxGroup;
+      items = [...document.querySelectorAll<HTMLButtonElement>(`[data-lightbox-group="${CSS.escape(group || '')}"]`)];
+      current = Math.max(0, items.indexOf(trigger));
+      opener = trigger;
+      scrollY = window.scrollY;
+      render();
+      document.documentElement.classList.add('lightbox-open');
+      dialog.showModal();
+      if (closeButton instanceof HTMLButtonElement) closeButton.focus();
+    });
+
+    previousButton?.addEventListener('click', () => move(-1));
+    nextButton?.addEventListener('click', () => move(1));
+    closeButton?.addEventListener('click', close);
+    dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+      if (event.key === 'Escape') { event.preventDefault(); close(); }
+    });
+    dialog.addEventListener('touchstart', event => { touchStartX = event.touches[0]?.clientX ?? null; }, { passive: true });
+    dialog.addEventListener('touchend', event => {
+      if (touchStartX === null) return;
+      const distance = (event.changedTouches[0]?.clientX ?? touchStartX) - touchStartX;
+      if (Math.abs(distance) > 55) move(distance > 0 ? -1 : 1);
+      touchStartX = null;
+    }, { passive: true });
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('lightbox-open');
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+      if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
+      items = [];
+    });
+  }
+</script>

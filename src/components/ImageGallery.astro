@@ -1,14 +1,12 @@
 ---
 interface ImageAsset { src: string; width: number; height: number; alt: string; caption?: string; }
-interface Props { images: ImageAsset[]; eager?: boolean; }
-const { images, eager = false } = Astro.props;
+interface Props { images: ImageAsset[]; eager?: boolean; group?: string; offset?: number; stage?: string; interactive?: boolean; }
+const { images, eager = false, group = 'portfolio', offset = 0, stage = 'Portfolio image', interactive = true } = Astro.props;
 ---
 <div class:list={['media-gallery', `media-count-${Math.min(images.length, 5)}`]}>
   {images.map((image, index) => (
     <figure class:list={['media-frame', { featured: index === 0 }]}>
-      <a href={image.src} target="_blank" rel="noopener" aria-label={`Open larger image: ${image.alt}`}>
-        <img src={image.src} width={image.width} height={image.height} alt={image.alt} loading={eager && index === 0 ? 'eager' : 'lazy'} decoding="async" />
-      </a>
+      {interactive ? <button type="button" class="media-trigger" aria-label={`Enlarge image: ${image.alt}`} data-lightbox-group={group} data-lightbox-index={offset + index} data-lightbox-src={image.src} data-lightbox-alt={image.alt} data-lightbox-stage={stage}><img src={image.src} width={image.width} height={image.height} alt={image.alt} loading={eager && index === 0 ? 'eager' : 'lazy'} decoding="async" /></button> : <img src={image.src} width={image.width} height={image.height} alt={image.alt} loading={eager && index === 0 ? 'eager' : 'lazy'} decoding="async" />}
       {image.caption && <figcaption>{image.caption}</figcaption>}
     </figure>
   ))}

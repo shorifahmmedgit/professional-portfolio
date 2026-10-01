@@ -21,3 +21,5 @@
 - Added the data-driven professional-photo and garment workflow image system.
 - Synced and optimized the public-safe Coat Collar Short Sleeve CLO 3D and physical-sample imagery.
 - Added conservative folder matching, stage-aware rendering, HEIC conversion, redaction support and responsive verification.
+- Extended garment workflows to support Inspiration → Gerber 2D → CLO 3D → Physical Sample.
+- Replaced external image links with an accessible in-page lightbox, ordered per work item.

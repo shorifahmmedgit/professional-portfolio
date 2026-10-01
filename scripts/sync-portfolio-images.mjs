@@ -12,6 +12,7 @@ const map = JSON.parse(await fs.readFile(path.join(root, 'src', 'data', 'work-im
 const imageExt = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.heic', '.heif']);
 
 const stageRules = [
+  ['inspiration', /(^|[\s_-])(inspiration|reference)([\s_-]|$)/i],
   ['twoD', /(^|[\s_-])(2d|pattern|gerber|pds)([\s_-]|$)/i],
   ['clo3D', /(^|[\s_-])(clo\s*3d|clo|3d)([\s_-]|$)/i],
   ['physicalSample', /(^|[\s_-])(actual\s*sample|physical\s*sample|sample)([\s_-]|$)/i]
@@ -22,7 +23,7 @@ function slug(value) {
 }
 
 function normalizedStyle(value) {
-  return value.toLowerCase().replace(/[_-]+/g, ' ').replace(/\b(clo\s*3d|clo|3d|2d|pattern|gerber|pds|actual\s*sample|physical\s*sample|sample|photos?|images?)\b/g, ' ').replace(/\s+/g, ' ').trim();
+  return value.toLowerCase().replace(/[_-]+/g, ' ').replace(/\b(inspiration|reference|clo\s*3d|clo|3d|2d|pattern|gerber|pds|actual\s*sample|physical\s*sample|sample|photos?|images?)\b/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 function titleCase(value) { return value.replace(/\b\w/g, c => c.toUpperCase()); }
@@ -134,14 +135,15 @@ for (const file of files) {
   if (classification.type === 'profile') { professionalSources.push(file); continue; }
   const config = map.items[classification.id] || {};
   if ((config.excludeSourceNames || []).some(name => name.toLowerCase() === path.basename(file).toLowerCase())) continue;
-  if (!grouped.has(classification.id)) grouped.set(classification.id, { sourceTitle: classification.sourceTitle, stages: { twoD: [], clo3D: [], physicalSample: [] } });
+  if (!grouped.has(classification.id)) grouped.set(classification.id, { sourceTitle: classification.sourceTitle, stages: { inspiration: [], twoD: [], clo3D: [], physicalSample: [] } });
   grouped.get(classification.id).stages[classification.stage].push(file);
 }
 
 const professional = { featured: null, supporting: [] };
 professionalSources.sort();
 for (let i = 0; i < professionalSources.length; i++) {
-  const asset = await optimize(professionalSources[i], path.join(output, 'profile'), '/media/profile', `professional-${String(i + 1).padStart(2, '0')}`);
+  const stem = i === 0 ? 'shorif-ahmmed-work-environment' : `professional-${String(i + 1).padStart(2, '0')}`;
+  const asset = await optimize(professionalSources[i], path.join(output, 'profile'), '/media/profile', stem);
   const image = { ...asset, alt: i === 0 ? 'Shorif Ahmmed in a professional pattern-development work environment' : `Shorif Ahmmed at work, professional view ${i + 1}` };
   if (i === 0) professional.featured = image; else professional.supporting.push(image);
 }
@@ -150,8 +152,8 @@ const workItems = [];
 for (const [id, group] of [...grouped.entries()].sort()) {
   const config = map.items[id] || {};
   const title = config.title || titleCase(group.sourceTitle);
-  const item = { id, title, category: config.category || 'Garment development workflow', description: config.description || 'Available public-safe views from the garment development process.', stages: { twoD: [], clo3D: [], physicalSample: [] } };
-  for (const stage of ['twoD', 'clo3D', 'physicalSample']) {
+  const item = { id, title, category: config.category || 'Garment development workflow', description: config.description || 'Available public-safe views from the garment development process.', stages: { inspiration: [], twoD: [], clo3D: [], physicalSample: [] } };
+  for (const stage of ['inspiration', 'twoD', 'clo3D', 'physicalSample']) {
     const preferred = config.stageOrder?.[stage] || [];
     const sources = group.stages[stage].sort((a, b) => {
       const ai = preferred.indexOf(path.basename(a)); const bi = preferred.indexOf(path.basename(b));
@@ -160,9 +162,10 @@ for (const [id, group] of [...grouped.entries()].sort()) {
     });
     for (let i = 0; i < sources.length; i++) {
       const sourceName = path.basename(sources[i]);
-      const dirName = stage === 'twoD' ? '2d' : stage === 'clo3D' ? 'clo-3d' : 'physical-sample';
-      const asset = await optimize(sources[i], path.join(output, 'work', id, dirName), `/media/work/${id}/${dirName}`, `${stage === 'physicalSample' ? 'sample' : stage.toLowerCase()}-${String(i + 1).padStart(2, '0')}`, config.redactions?.[sourceName] || []);
-      const label = stage === 'twoD' ? 'Gerber 2D pattern' : stage === 'clo3D' ? 'CLO 3D garment' : 'finished physical sample';
+      const dirName = stage === 'inspiration' ? 'inspiration' : stage === 'twoD' ? '2d' : stage === 'clo3D' ? 'clo-3d' : 'physical-sample';
+      const stem = stage === 'physicalSample' ? 'sample' : stage === 'clo3D' ? 'clo3d' : stage.toLowerCase();
+      const asset = await optimize(sources[i], path.join(output, 'work', id, dirName), `/media/work/${id}/${dirName}`, `${stem}-${String(i + 1).padStart(2, '0')}`, config.redactions?.[sourceName] || []);
+      const label = stage === 'inspiration' ? 'inspiration reference' : stage === 'twoD' ? 'Gerber 2D pattern' : stage === 'clo3D' ? 'CLO 3D garment' : 'finished physical sample';
       item.stages[stage].push({ ...asset, alt: `${title} — ${label}, view ${i + 1}` });
     }
   }
