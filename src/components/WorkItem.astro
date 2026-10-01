@@ -1,28 +1,28 @@
 ---
-import ImageGallery from './ImageGallery.astro';
-import { visibleStages } from '../lib/workflow.js';
+import { orderedProjectImages, visibleStages } from '../lib/workflow.js';
 interface ImageAsset { src: string; width: number; height: number; alt: string; caption?: string; }
 type StageKey = 'inspiration' | 'twoD' | 'clo3D' | 'physicalSample';
 interface WorkItemData { id: string; title: string; category: string; description: string; stages: Record<StageKey, ImageAsset[]>; }
 interface Props { item: WorkItemData; }
-const stageMeta = {
-  inspiration: { number: '01', label: 'Inspiration', detail: 'Reference / Design Direction' },
-  twoD: { number: '02', label: '2D Pattern', detail: 'Gerber PDS / Pattern Development' },
-  clo3D: { number: '03', label: 'CLO 3D', detail: '3D Garment Development / Evaluation' },
-  physicalSample: { number: '04', label: 'Physical Sample', detail: 'Finished Sample / Real Garment' }
-} satisfies Record<StageKey, { number: string; label: string; detail: string }>;
 const { item } = Astro.props;
 const stages = visibleStages(item.stages) as [StageKey, ImageAsset[]][];
-let galleryOffset = 0;
+const images = orderedProjectImages(item.stages) as (ImageAsset & { stage: StageKey; stageLabel: string; stageIndex: number })[];
+const labels: Record<StageKey, string> = { inspiration: 'Inspiration', twoD: '2D Pattern', clo3D: 'CLO 3D', physicalSample: 'Physical Sample' };
+const workflowLabel = stages.map(([key]) => labels[key]).join(' → ');
 ---
 <article class="garment-case" id={item.id}>
-  <header class="garment-case-head"><div><p class="eyebrow">{item.category}</p><h3>{item.title}</h3></div><p>{item.description}</p></header>
-  <div class:list={['stage-flow', `has-${stages.length}-stages`]}>
-    {stages.map(([key, images], index) => {
-      const meta = stageMeta[key];
-      const offset = galleryOffset;
-      galleryOffset += images.length;
-      return <section class="workflow-stage" aria-labelledby={`${item.id}-${key}`}><header class="workflow-stage-head"><span>{meta.number}</span><div><h4 id={`${item.id}-${key}`}>{meta.label}</h4><p>{meta.detail}</p></div>{index < stages.length - 1 && <i aria-hidden="true">→</i>}</header><ImageGallery images={images} group={item.id} offset={offset} stage={meta.label} /></section>;
-    })}
+  <header class="garment-case-head">
+    <h3>{item.title}</h3>
+    <p class="project-workflow">{workflowLabel}</p>
+  </header>
+  <div class="project-gallery" role="region" aria-label={`${item.title} development images`} tabindex="0">
+    {images.map((image, index) => (
+      <figure class="project-image-card">
+        <button type="button" class="media-trigger" aria-label={`Enlarge image: ${image.alt}`} data-lightbox-group={item.id} data-lightbox-index={index} data-lightbox-src={image.src} data-lightbox-alt={image.alt} data-lightbox-stage={`${image.stageLabel} · View ${image.stageIndex + 1}`}>
+          <span class="project-image-viewport"><img src={image.src} width={image.width} height={image.height} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" /></span>
+          <span class="project-image-caption"><strong>{image.stageLabel}</strong><small>View {image.stageIndex + 1}</small></span>
+        </button>
+      </figure>
+    ))}
   </div>
 </article>
