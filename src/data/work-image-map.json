@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "aliases": { "coat collar short sleeve": "coat-collar-short-sleeve" },
+  "items": {
+    "coat-collar-short-sleeve": {
+      "title": "Coat Collar Short Sleeve",
+      "category": "Woven garment development",
+      "description": "A public-safe view of one style across CLO 3D garment visualization and the finished physical sample. Each environment contributes different information to the development process.",
+      "excludeSourceNames": ["sample-01.heic", "sample-05.heic", "sample-06.heic"],
+      "stageOrder": { "physicalSample": ["sample-04.heic", "sample-02.heic", "sample-03.heic"] },
+      "redactions": {
+        "sample-04.heic": [{ "left": 0.42, "top": 0.18, "width": 0.16, "height": 0.1 }]
+      }
+    }
+  }
+}

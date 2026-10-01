@@ -1,0 +1,8 @@
+---
+import ProfessionalPhotos from './ProfessionalPhotos.astro';
+import WorkItem from './WorkItem.astro';
+import portfolioImages from '../data/portfolio-images.json';
+const { professional, workItems } = portfolioImages;
+---
+<ProfessionalPhotos featured={professional.featured} supporting={professional.supporting} />
+{workItems.length > 0 && <section class="work-photo-system" aria-labelledby="workflow-title"><div class="shell"><header class="process-heading"><div><p class="eyebrow">From digital development to real garment</p><h2 id="workflow-title">One workflow.<br /><em>Multiple sources of evidence.</em></h2></div><p>I work across Gerber 2D, CLO 3D and physical samples. The available views are shown honestly for each style; together they support pattern decisions, garment understanding and further refinement.</p></header><div class="garment-case-list">{workItems.map((item) => <WorkItem item={item} />)}</div><p class="confidentiality-note"><span aria-hidden="true">✦</span> Public-safe studies only. Buyer identifiers, measurements, internal comments and proprietary details are excluded or redacted.</p></div></section>}

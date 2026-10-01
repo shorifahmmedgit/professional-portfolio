@@ -1,0 +1,15 @@
+---
+interface ImageAsset { src: string; width: number; height: number; alt: string; caption?: string; }
+interface Props { images: ImageAsset[]; eager?: boolean; }
+const { images, eager = false } = Astro.props;
+---
+<div class:list={['media-gallery', `media-count-${Math.min(images.length, 5)}`]}>
+  {images.map((image, index) => (
+    <figure class:list={['media-frame', { featured: index === 0 }]}>
+      <a href={image.src} target="_blank" rel="noopener" aria-label={`Open larger image: ${image.alt}`}>
+        <img src={image.src} width={image.width} height={image.height} alt={image.alt} loading={eager && index === 0 ? 'eager' : 'lazy'} decoding="async" />
+      </a>
+      {image.caption && <figcaption>{image.caption}</figcaption>}
+    </figure>
+  ))}
+</div>

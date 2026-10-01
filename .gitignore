@@ -4,3 +4,6 @@ dist/
 .DS_Store
 *.log
 .wrangler/
+.portfolio-sync/
+.portfolio-drive-cache.json
+.chrome*/

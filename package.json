@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "sync:portfolio-images": "node scripts/sync-portfolio-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
@@ -15,7 +16,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.7",
+    "heic-convert": "^2.1.0",
+    "sharp": "^0.35.5",
     "typescript": "5.9.2"
   }
 }
-

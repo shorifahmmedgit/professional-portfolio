@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-10-01T16:41:38.341Z",
+  "professional": {
+    "featured": null,
+    "supporting": []
+  },
+  "workItems": [
+    {
+      "id": "coat-collar-short-sleeve",
+      "title": "Coat Collar Short Sleeve",
+      "category": "Woven garment development",
+      "description": "A public-safe view of one style across CLO 3D garment visualization and the finished physical sample. Each environment contributes different information to the development process.",
+      "stages": {
+        "twoD": [],
+        "clo3D": [
+          {
+            "src": "/media/work/coat-collar-short-sleeve/clo-3d/clo3d-01.webp",
+            "width": 1600,
+            "height": 826,
+            "alt": "Coat Collar Short Sleeve — CLO 3D garment, view 1"
+          },
+          {
+            "src": "/media/work/coat-collar-short-sleeve/clo-3d/clo3d-02.webp",
+            "width": 1230,
+            "height": 1011,
+            "alt": "Coat Collar Short Sleeve — CLO 3D garment, view 2"
+          },
+          {
+            "src": "/media/work/coat-collar-short-sleeve/clo-3d/clo3d-03.webp",
+            "width": 1600,
+            "height": 771,
+            "alt": "Coat Collar Short Sleeve — CLO 3D garment, view 3"
+          },
+          {
+            "src": "/media/work/coat-collar-short-sleeve/clo-3d/clo3d-04.webp",
+            "width": 1219,
+            "height": 998,
+            "alt": "Coat Collar Short Sleeve — CLO 3D garment, view 4"
+          },
+          {
+            "src": "/media/work/coat-collar-short-sleeve/clo-3d/clo3d-05.webp",
+            "width": 1236,
+            "height": 993,
+            "alt": "Coat Collar Short Sleeve — CLO 3D garment, view 5"
+          }
+        ],
+        "physicalSample": [
+          {
+            "src": "/media/work/coat-collar-short-sleeve/physical-sample/sample-01.webp",
+            "width": 1200,
+            "height": 1600,
+            "alt": "Coat Collar Short Sleeve — finished physical sample, view 1"
+          },
+          {
+            "src": "/media/work/coat-collar-short-sleeve/physical-sample/sample-02.webp",
+            "width": 1200,
+            "height": 1600,
+            "alt": "Coat Collar Short Sleeve — finished physical sample, view 2"
+          },
+          {
+            "src": "/media/work/coat-collar-short-sleeve/physical-sample/sample-03.webp",
+            "width": 1200,
+            "height": 1600,
+            "alt": "Coat Collar Short Sleeve — finished physical sample, view 3"
+          }
+        ]
+      }
+    }
+  ]
+}

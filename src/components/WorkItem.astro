@@ -1,0 +1,23 @@
+---
+import ImageGallery from './ImageGallery.astro';
+interface ImageAsset { src: string; width: number; height: number; alt: string; caption?: string; }
+type StageKey = 'twoD' | 'clo3D' | 'physicalSample';
+interface WorkItemData { id: string; title: string; category: string; description: string; stages: Record<StageKey, ImageAsset[]>; }
+interface Props { item: WorkItemData; }
+const stageMeta = {
+  twoD: { number: '01', label: '2D Pattern', detail: 'Gerber PDS / Pattern Development' },
+  clo3D: { number: '02', label: 'CLO 3D', detail: '3D Review / Garment Visualization' },
+  physicalSample: { number: '03', label: 'Physical Sample', detail: 'Finished Sample / Real Garment' }
+} satisfies Record<StageKey, { number: string; label: string; detail: string }>;
+const { item } = Astro.props;
+const stages = (Object.entries(item.stages) as [StageKey, ImageAsset[]][]).filter(([, images]) => images.length > 0);
+---
+<article class="garment-case" id={item.id}>
+  <header class="garment-case-head"><div><p class="eyebrow">{item.category}</p><h3>{item.title}</h3></div><p>{item.description}</p></header>
+  <div class:list={['stage-flow', `has-${stages.length}-stages`]}>
+    {stages.map(([key, images], index) => {
+      const meta = stageMeta[key];
+      return <section class="workflow-stage" aria-labelledby={`${item.id}-${key}`}><header class="workflow-stage-head"><span>{meta.number}</span><div><h4 id={`${item.id}-${key}`}>{meta.label}</h4><p>{meta.detail}</p></div>{index < stages.length - 1 && <i aria-hidden="true">→</i>}</header><ImageGallery images={images} /></section>;
+    })}
+  </div>
+</article>

@@ -17,3 +17,7 @@
 - Refined public contact page and linked CV.
 - Completed full QA crawl of every sitemap route with no public route errors found.
 
+## 2026-10-01
+- Added the data-driven professional-photo and garment workflow image system.
+- Synced and optimized the public-safe Coat Collar Short Sleeve CLO 3D and physical-sample imagery.
+- Added conservative folder matching, stage-aware rendering, HEIC conversion, redaction support and responsive verification.
