@@ -1,8 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { projects } from '../../data/site';
+import ProcessShowcase from '../../components/ProcessShowcase.astro';
 ---
 <Base title="Work" description="Public-safe garment pattern and product-development work by Shorif Ahmmed.">
-  <section class="page-hero shell"><p class="eyebrow">Selected work</p><h1>Pattern and development work, shown <em>without confidential source material.</em></h1><p class="lead narrow">These public-safe studies reflect responsibilities documented in my CV. Buyer names, proprietary patterns, measurements and internal comments are excluded.</p></section>
-  <section class="shell section-space"><div class="project-grid project-grid-full">{projects.map((project, index) => <a class:list={['project-card', `tone-${index + 1}`]} href={`/projects/${project.slug}`}><span>{project.eyebrow}</span><h2>{project.title}</h2><p>{project.summary}</p><ul>{project.tags.map(tag => <li>{tag}</li>)}</ul><b>Open work →</b></a>)}</div></section>
+  <section class="compact-heading shell"><p class="eyebrow">Selected work</p><h1>Work / Project Development</h1><p>Connected garment projects from available inspiration and 2D pattern evidence through CLO 3D and the physical garment.</p></section>
+  <ProcessShowcase />
 </Base>

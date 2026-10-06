@@ -24,3 +24,9 @@
 - Extended garment workflows to support Inspiration → Gerber 2D → CLO 3D → Physical Sample.
 - Replaced external image links with an accessible in-page lightbox, ordered per work item.
 - Added the approved professional work-environment portrait to the existing homepage identity section.
+
+## 2026-10-06
+- Applied the approved Option 8 teal / blue-green visual system across the portfolio.
+- Added the professional work-environment photo to the homepage hero and About page.
+- Refined Expertise, Experience, CV, Contact and connected garment-project presentation.
+- Preserved the original CV, factory-wise experience content, responsive galleries and same-page lightbox.

@@ -1,46 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
-import PatternVisual from '../components/PatternVisual.astro';
-import SectionHead from '../components/SectionHead.astro';
-import ProcessShowcase from '../components/ProcessShowcase.astro';
-import { capabilities, projects, experience } from '../data/site';
+const capabilities = [
+  { icon: '◇', short: '2D', title: 'Pattern Development' },
+  { icon: '⬡', short: '3D', title: 'CLO 3D Simulation' },
+  { icon: '♙', short: 'Garment', title: 'Development' },
+  { icon: '♧', short: 'Sample & Production', title: 'Support' },
+];
+const featured = [
+  { title: 'Coat Collar Short Sleeve', image: '/media/work/coat-collar-short-sleeve/physical-sample/sample-01.webp', href: '/projects', tags: ['CLO 3D','Physical Sample'] },
+  { title: 'Pattern Correction Workflow', image: '/media/work/coat-collar-short-sleeve/clo-3d/clo3d-01.webp', href: '/projects/comment-to-pattern-workflow', tags: ['2D Pattern','Development'] },
+  { title: 'CLO 3D Validation', image: '/media/work/coat-collar-short-sleeve/clo-3d/clo3d-03.webp', href: '/projects/clo-3d-pattern-validation', tags: ['CLO 3D','Fit Review'] },
+];
 ---
-<Base title="Shorif Ahmmed" description="Pattern Master in Dhaka working across both Gerber 2D and CLO 3D, combining digital pattern development, garment evaluation and physical sample learning across woven shirts and overshirts.">
-  <section class="hero shell">
-    <div class="hero-copy">
-      <p class="status"><i></i> Pattern Master · Dhaka, Bangladesh</p>
-      <h1>Working across 2D and 3D to <em>develop patterns with a fuller garment view.</em></h1>
-      <p class="lead">I work across both Gerber 2D and CLO 3D, combining the two as part of my pattern-development workflow. I use each environment to understand, refine and evaluate the garment from different angles—then connect those insights with physical sampling before final pattern release.</p>
-      <div class="actions"><a class="button" href="/projects">Explore selected work <span>↗</span></a><a class="text-link" href="/about">My professional story <span>→</span></a></div>
-      <dl class="hero-stats"><div><dt>Since 2022</dt><dd>Garment pattern practice</dd></div><div><dt>Gerber 2D</dt><dd>Drafting, correction & grading</dd></div><div><dt>CLO 3D</dt><dd>Fit, silhouette & look validation</dd></div><div><dt>Woven focus</dt><dd>Shirts & overshirts</dd></div></dl>
+<Base title="Shorif Ahmmed" description="Pattern Master in Dhaka working across Gerber 2D, CLO 3D, garment development and physical sample evaluation.">
+  <section class="option-hero">
+    <div class="option-hero-copy">
+      <p class="option-kicker">Pattern Maker <i></i> Garment Technologist</p>
+      <h1>Pattern Making<br/>Garment Technology<br/><em>3D Apparel Development</em></h1>
+      <p>From concept to physical garment — combining 2D pattern, 3D simulation and real-world production experience.</p>
+      <div class="actions"><a class="button" href="/projects">View My Work <span>→</span></a><a class="button button-secondary" href="/cv/shorif-ahmmed-resume.pdf" download>Download CV <span>↓</span></a></div>
     </div>
-    <PatternVisual />
+    <figure class="option-hero-photo"><img src="/media/profile/shorif-ahmmed-work-environment.webp" width="1122" height="1402" alt="Shorif Ahmmed in a professional pattern-development work environment" loading="eager" /></figure>
   </section>
-
-  <ProcessShowcase />
-
-  <section class="statement dark-section">
-    <p class="eyebrow light">Professional premise</p>
-    <blockquote>“A strong pattern is not only a set of lines. It is a technical decision that connects design, construction, fabric and fit.”</blockquote>
-    <p>This portfolio documents that decision-making honestly: what I can do now, what the evidence supports, and what I am deliberately learning next.</p>
-  </section>
-
-  <section class="shell section-space">
-    <SectionHead eyebrow="Core practice" title="Technical work, grounded in the sample cycle." body="My strongest contribution is connecting specifications and comments to practical pattern action." />
-    <div class="capability-grid">{capabilities.map((item) => <article><span>{item.n}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
-  </section>
-
-  <section class="shell section-space work-preview">
-    <SectionHead eyebrow="Selected work" title="Public-safe studies in process and reasoning." body="No proprietary patterns, buyer documents or confidential measurements are shown." />
-    <div class="project-grid">{projects.map((p, i) => <a class:list={['project-card', `tone-${i + 1}`]} href={`/projects/${p.slug}`}><span>{p.eyebrow}</span><h3>{p.title}</h3><p>{p.summary}</p><ul>{p.tags.map(t => <li>{t}</li>)}</ul><b>View study →</b></a>)}</div>
-  </section>
-
-  <section class="learning-band"><div class="shell learning-inner"><div><p class="eyebrow light">Development ledger</p><h2>Credibility includes the work still in progress.</h2></div><p>I am actively deepening fit diagnosis, fabric behaviour, construction logic, advanced grading, CLO 3D and technical communication. These are presented as learning areas—not inflated expertise.</p><a href="/expertise#learning">View the learning roadmap →</a></div></section>
-
-  <section class="shell section-space">
-    <SectionHead eyebrow="Experience" title="Professional progression across pattern and sample development." />
-    <div class="article-list">{experience.map((item) => <a href="/experience"><div><span>Employment</span><h3>{item.organization}</h3><p>{item.designation}</p></div><time>{item.period}</time><b>→</b></a>)}</div>
-    <a class="text-link end-link" href="/experience">View full experience <span>→</span></a>
-  </section>
-  <section class="cta-band"><p class="eyebrow light">Professional connection</p><h2>Interested in precise pattern work, technical learning or responsible garment innovation?</h2><a class="button light-button" href="/contact">Start a conversation ↗</a></section>
+  <section class="option-capabilities shell" aria-label="Core capabilities">{capabilities.map(item => <article><span>{item.icon}</span><div><b>{item.short}</b><small>{item.title}</small></div></article>)}</section>
+  <section class="shell option-featured"><header><h2>Featured Work</h2><a href="/projects">View All →</a></header><div class="option-work-grid">{featured.map(item => <a href={item.href}><img src={item.image} alt={item.title} loading="lazy" /><h3>{item.title}</h3><div>{item.tags.map(tag => <span>{tag}</span>)}</div></a>)}</div></section>
 </Base>

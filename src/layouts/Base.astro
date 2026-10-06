@@ -49,7 +49,7 @@ const graph = {
     <meta name="author" content="Shorif Ahmmed" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#122b24" />
+    <meta name="theme-color" content="#047857" />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -65,7 +65,7 @@ const graph = {
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Shorif Ahmmed home"><span>SA</span><b>Shorif Ahmmed</b></a>
+      <a class="brand" href="/" aria-label="Shorif Ahmmed home"><span aria-hidden="true">▦</span><b>Shorif Ahmmed</b></a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         {nav.map((item) => <a href={item.href} aria-current={Astro.url.pathname.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
       </nav>
