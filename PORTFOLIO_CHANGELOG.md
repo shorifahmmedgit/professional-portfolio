@@ -1,5 +1,15 @@
 # Portfolio Change Log
 
+## 2026-10-17
+- Compared the user's attached two-page Assistant Garment Technologist CV with the existing public portfolio's 3-company / 20-responsibility experience dataset; found existing employment dates, designations, buyer names and duties already matched the CV and preserved them.
+- Added public-safe work locations to all three Experience entries (Gazipur / Ashulia; no private addresses).
+- Corrected About and homepage positioning to distinguish current Pattern Master employment from future garment-technologist career aspirations; stated current employer's Viyellatex Group affiliation.
+- Expanded public CV education summary with SSC (2013) and HSC (2015), preserving BBA (2019) and grades from the attached CV.
+- Adjusted Expertise to emphasize CV-supported buyer technical communication and M&S BDSO involvement rather than inferred material expertise.
+- Did not publish the attached DOCX or its date of birth, family members, permanent address or other private personal details; the pre-existing public CV PDF was not replaced or independently verified.
+- Deployment status requires separate live verification; GitHub source changes alone do not prove public deployment.
+
+
 ## 2026-09-28
 - Replaced the initial generated Pages hostname with `https://shorif-ahmmed.pages.dev`.
 - Migrated the complete portfolio source to `shorifahmmedgit/professional-portfolio` on `main`.
