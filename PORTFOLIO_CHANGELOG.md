@@ -40,3 +40,10 @@
 - Added the professional work-environment photo to the homepage hero and About page.
 - Refined Expertise, Experience, CV, Contact and connected garment-project presentation.
 - Preserved the original CV, factory-wise experience content, responsive galleries and same-page lightbox.
+
+## 2026-10-17 — Public CV privacy update
+- Replaced `public/cv/shorif-ahmmed-resume.pdf` with the sanitized two-page public CV, preserving the original professional headshot and all three employers' full factory location fields and career duties.
+- Removed private DOB, parents' names, permanent residential address, exact personal residential address, personal phone, gender and nationality from public download. Kept profession-related email and LinkedIn.
+- Original full CV remains a private source; separately saved the public-safe PDF and editable DOCX in the private Google Drive `02_CAREER` folder.
+- Independently checked the live `/cv/shorif-ahmmed-resume.pdf` extraction for named private strings and the retained factory addresses. CV landing page still links to the replaced asset.
+- Important residual risk: because the GitHub repository is public, earlier commits may still contain the superseded PDF; history and search-cache cleanup require a separate risk-reviewed action and must not be claimed complete.
